@@ -1,0 +1,24 @@
+#site-icon-pro textarea {
+  direction: ltr;
+  font-family: Consolas,Monaco,monospace;
+  font-size: 13px;
+  width: 97%;
+  background: #f9f9f9;
+  outline: 0;
+}
+
+#site-icon-pro pre {
+  overflow: auto;
+  margin: 0.75em 0;
+  padding: 0.75em;
+  background: #f9f9f9;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+#site-icon-pro pre code {
+  padding: 0;
+  background: transparent;
+  direction: ltr;
+  font-family: Consolas,Monaco,monospace;
+  font-size: 13px;
+}
