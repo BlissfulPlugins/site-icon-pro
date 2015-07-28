@@ -7,7 +7,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Site Icon Pro
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       Full control over the HTML used to display the favicon and app icons on your site.
  * Version:           1.0.0
  * Author:            Luca Spiller
  * License:           GPL-2.0+
