@@ -61,7 +61,10 @@ class Admin {
 ?>
 	<div class="wrap">
 		<h1><?php esc_html_e( 'Site Icon Pro Options', 'site-icon-pro' ); ?></h1>
+
+		<?php settings_errors(); ?>
 		<form method="post" action="options.php" id="site-icon-pro">
+			<?php settings_fields( 'site_icon_pro_options' ); ?>
 
 			<h3><?php esc_html_e( 'Site Icon HTML', 'site-icon-pro' ); ?></h3>
 			<p><?php echo wp_kses_data( __( "Here you can specify the exact HTML that is used to display favicon and app icons on your site. If you haven't already, please upload your icons into the <code>wp-content</code> folder of your Wordpress installation via FTP / SSH / etc.", 'site-icon-pro' ) ); ?></p>
