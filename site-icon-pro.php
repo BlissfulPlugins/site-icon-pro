@@ -42,6 +42,7 @@ function run_site_icon_pro() {
 
 	if ( is_admin() ) {
 
+		// Admin hooks to add our menus.
 		add_action( 'admin_init', 'site_icon_pro_admin_init' );
 		add_action( 'admin_menu', 'site_icon_pro_admin_menu' );
 
@@ -53,6 +54,11 @@ function run_site_icon_pro() {
 		// Add our renderer.
 		add_action( 'wp_head', 'site_icon_pro_render', 99 );
 	}
+
+	// Register a hook to remove the default Site Icon editor in Customizer.
+	// Although this is an backend method, it is not triggered under `is_admin`.
+	// That seems like a bug, so let's leave it here incase that changes!
+	add_action( 'customize_register', 'site_icon_pro_customize_register', 99 );
 }
 
 /**
@@ -80,6 +86,56 @@ function site_icon_pro_admin_menu() {
 }
 
 /**
+ * Replaces the site icon control in the Customizer.
+ *
+ * @since    1.0.0
+ *
+ * @param object $wp_customize Instance of Customizer.
+ */
+function site_icon_pro_customize_register( $wp_customize ) {
+
+	/**
+	 * Custom Customizer control to display a hint telling users where to manage
+	 * their site icon.
+	 *
+	 * We need the class defined in this function as WP_Customize_Control isn't
+	 * loaded unless you are in the Customizer context.
+	 *
+	 * @since    1.0.0
+	 */
+	class Site_Icon_Pro_Customize_Control extends WP_Customize_Control {
+
+		/**
+		 * Render action.
+		 *
+		 * @since    1.0.0
+		 */
+		public function render_content() {
+?>
+	<label>
+		<span class="customize-control-title">
+			<?php esc_html_e( 'Site Icon' ); // We use the Wordpress context for this. ?>
+		</span>
+		<span class="description customize-control-description">
+			<?php echo wp_kses_data( __( 'Please manage your site icon through <a href="themes.php?page=site_icon_pro_options">Appearance -> Site Icon Pro</a>.', 'site-icon-pro' ) ); ?>
+		</span>
+	</label>
+<?php
+		}
+	}
+
+	// Remove the default site icon control.
+	$wp_customize->remove_control( 'site_icon' );
+
+	// Replace it with ours.
+	$wp_customize->add_control( new Site_Icon_Pro_Customize_Control( $wp_customize, 'site_icon', array(
+		'section'  => 'title_tagline',
+		'priority' => 60,
+	) ) );
+
+}
+
+/**
  * Render admin options page
  *
  * @since    1.0.0
@@ -91,6 +147,7 @@ function site_icon_pro_render_options() {
 		<form method="post" action="options.php" id="site-icon-pro">
 
 			<h3><?php esc_html_e( 'Site Icon HTML', 'site-icon-pro' ); ?></h3>
+			<p><?php echo wp_kses_data( __( "Here you can specify the exact HTML that is used to display favicon and app icons on your site. If you haven't already, please upload your icons into the <code>wp-content</code> folder of your Wordpress installation via FTP / SSH / etc.", 'site-icon-pro' ) ); ?></p>
 			<textarea cols="70" rows="10" id="site_icon_pro_html" name="site_icon_pro_html"><?php echo( // WPCS: XSS OK.
 				esc_textarea( get_option( 'site_icon_pro_html' ) )
 			); ?></textarea>
