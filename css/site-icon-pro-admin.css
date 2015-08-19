@@ -20,5 +20,13 @@
   background: transparent;
   direction: ltr;
   font-family: Consolas,Monaco,monospace;
-  font-size: 13px;
+  font-size: 15px;
+}
+
+#site-icon-pro ul {
+  list-style: disc;
+}
+
+#site-icon-pro ul li {
+  margin-left: 40px;
 }
