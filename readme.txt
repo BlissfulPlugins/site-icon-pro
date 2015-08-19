@@ -1,9 +1,9 @@
 === Site Icon Pro ===
 Contributors: lucaspiller
-Tags: theme, favicon, app icon, admin, blog, wordpress, image, images, graphic, graphics, icon, iphone, ios, apple touch, retina, multisite, site icon
+Tags: theme, favicon, app icon, admin, blog, wordpress, image, images, graphic, graphics, icon, iphone, ios, apple touch, android, windows, metro tile, retina, multisite, site icon, branding
 Requires at least: 4.0
 Tested up to: 4.3
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 License: GPL-2.0+
 
 Site Icon Pro gives you full control over the exact icons and HTML used to display the favicon and app icons on your Wordpress site!
@@ -21,11 +21,16 @@ Note that this is a plugin for advanced users, if you aren't comfortable editing
 
 Although there are various automated tools that will resize an image to every favion resolution, for full control you should generate each icon seperately. Each platform has different guidelines for how favicons should look and how they behave. Additionality automated tools will resize your images rather poorly - you will be able to generate much better quality favicons by resizing them yourself from a vector image.
 
-We recommend you upload the following icons:
+We recommend you include the following icons at the very least:
 
 * ICO - 16x16px low resolution icon on a transparent background (some tools let you combine multiple resolutions in a single file, in that case also add a 32x32px version)
 * PNG - 32x32px retina icon on a transparent background
-* Apple Touch / iOS - PNG format 180x180px on coloured background (iOS will display a transparent icon on a black background, so specify the background colour for full control)
+
+The plugin includes further documentation on icon formats and sizes, including those for:
+
+* Apple iOS (iPad and iPhone)
+* Android
+* Windows Metro Tiles (Windows 8.1+ and Windows Phone 8.1+)
 
 = Contributing =
 
@@ -75,6 +80,10 @@ Feel free to open a thread at [the Site Icon Pro support forum](https://wordpres
 4. How your icon will look on iOS 8 (retina).
 
 == Changelog ==
+
+= 1.1.0 =
+
+* More documentation on icon formats.
 
 = 1.0.0 =
 
