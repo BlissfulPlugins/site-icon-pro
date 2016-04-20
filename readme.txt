@@ -2,8 +2,8 @@
 Contributors: lucaspiller
 Tags: theme, favicon, app icon, admin, blog, wordpress, image, images, graphic, graphics, icon, iphone, ios, apple touch, android, windows, metro tile, retina, multisite, site icon, branding
 Requires at least: 4.0
-Tested up to: 4.3
-Stable tag: 1.1.0
+Tested up to: 4.5
+Stable tag: 1.1.1
 License: GPL-2.0+
 
 Site Icon Pro gives you full control over the exact icons and HTML used to display the favicon and app icons on your Wordpress site!
@@ -80,6 +80,10 @@ Feel free to open a thread at [the Site Icon Pro support forum](https://wordpres
 4. How your icon will look on iOS 8 (retina).
 
 == Changelog ==
+
+= 1.1.1 =
+
+* Tested up to Wordpress 4.5.
 
 = 1.1.0 =
 
